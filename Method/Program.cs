@@ -2,40 +2,83 @@
 {
     private static void Main(string[] args)
     {
-        NewMessage();
-        List<string> ostunimekiri = new List<string>();
-        Console.WriteLine("Sisesta oma tänane poeskäigunimekiri");
-        string kasutajaSisestus = "";
-        GetUserInput(kasutajaSisestus, ostunimekiri);
-        foreach (var söök in ostunimekiri)
+        Random juhuarv = new Random();
+        Console.WriteLine("kas sa tahab müti vista, või täringut veeretada?");
+        string kasutajaValik = Console.ReadLine();
+        if (kasutajaValik == "münti")
         {
-            Console.WriteLine($" -*- {söök}");
+            Console.WriteLine(Münt(juhuarv));
         }
-        GetUserInput(kasutajaSisestus, ostunimekiri);
+        else if (kasutajaValik == "täringut")
+        {
+            Console.WriteLine(Täring(juhuarv));                   
+        }
+        else
+        {
+            Console.WriteLine("ei tea sellist vastust");
+        }
+
+
+
+        //        NewMessage();
+        //        List<string> ostunimekiri = new List<string>();
+        //        Console.WriteLine("Sisesta oma tänane poeskäigunimekiri");
+        //        string kasutajaSisestus = "";
+        //        GetUserInput(kasutajaSisestus, ostunimekiri);
+        //        foreach (var söök in ostunimekiri)
+        //        {
+        //            Console.WriteLine($" -*- {söök}");
+        //        }
+        //        GetUserInput(kasutajaSisestus, ostunimekiri);
+        //    }
+
+        //    static List<string> GetUserInput(string kasutajasisestus, List<string> ostunimekiri)
+        //    {
+        //        while (kasutajasisestus != "rohkem pole")
+        //            {
+        //                Console.WriteLine("Kirjuta ükshaaval, sisesta järgmine ost:\nkui rohkem ei ole midagi lisada, siis ütle \"rohkem pole\"");
+        //                kasutajasisestus = Console.ReadLine();
+        //                if (kasutajasisestus != "" || kasutajasisestus != "rohkem pole")
+        //                {
+        //                    ostunimekiri.Add(kasutajasisestus);
+        //                }
+        //                else if (kasutajasisestus == "rohkem pole")
+        //                {
+        //                    kasutajasisestus = "";
+        //                }
+
+        //            }
+        //            Console.WriteLine("see sinu nimekiri");
+        //        return ostunimekiri;
+        //    }
+
+        //    static void NewMessage()
+        //    {
+        //        Console.WriteLine("this is a message");
+        //    }
+        //}
+
     }
 
-    static List<string> GetUserInput(string kasutajasisestus, List<string> ostunimekiri)
+    private static int Täring (Random juhuarv)
     {
-        while (kasutajasisestus != "rohkem pole")
-            {
-                Console.WriteLine("Kirjuta ükshaaval, sisesta järgmine ost:\nkui rohkem ei ole midagi lisada, siis ütle \"rohkem pole\"");
-                kasutajasisestus = Console.ReadLine();
-                if (kasutajasisestus != "" || kasutajasisestus != "rohkem pole")
-                {
-                    ostunimekiri.Add(kasutajasisestus);
-                }
-                else if (kasutajasisestus == "rohkem pole")
-                {
-                    kasutajasisestus = "";
-                }
-                
-            }
-            Console.WriteLine("see sinu nimekiri");
-        return ostunimekiri;
+        return juhuarv.Next(1,6);
     }
-    
-    static void NewMessage()
+   
+    static string Münt(Random thing)
     {
-        Console.WriteLine("this is a message");
+        int mündivise = thing.Next(1, 2);
+        if (mündivise == 1)
+        {
+            return "kull";
+        }
+        else
+        {
+            return "kiri";
+        }
+        return "serv";
+        
     }
 }
+
+

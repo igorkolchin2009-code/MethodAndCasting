@@ -1,0 +1,65 @@
+﻿
+namespace Veehoidla_tase
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string kasutajaNimi = KasutajaNimi();
+
+            string correstUser = "siksseven";
+            if (correstUser != kasutajaNimi)
+            {
+                Console.WriteLine(kasutajaNimi+", Sinu nime ei ole õige");
+            }
+            else
+            {
+                double veetase = 0d;
+                Console.WriteLine("Tere, "+ correstUser+ ". Mis on veetaseme hetkeseis meetrites?: ");
+                bool errorState = false;
+                while (veetase > 1.00d && veetase < 4.25d)
+                {
+                    Console.WriteLine("Mis on veetase andurul?:");
+                    double andyr = double.Parse(Console.ReadLine());
+                    if (veetase < 1.00d && veetase > 4.25d)
+                    {
+                        errorState = true;
+                        break;
+
+                    }
+                    
+                }
+
+                HoiatySõna(veetase, errorState);
+
+
+            }
+
+        }
+
+        private static void HoiatySõna(double veetase, bool errorState)
+        {
+            //throw new NotImplementedException();
+            if (veetase >= 1.00d || veetase >= 2.00d)
+            {
+
+            }
+            else if (veetase >= 2.00d || veetase >= 3.50d )
+            {
+
+            }
+
+        }
+
+        private static string KasutajaNimi()
+        {
+            string sisusta = "";
+            do
+            {
+                Console.WriteLine("Palun sisesta oma kasutajaNimi");
+                sisusta = Console.ReadLine();
+            } while (sisusta == "");
+            return sisusta;
+        }
+    }
+}

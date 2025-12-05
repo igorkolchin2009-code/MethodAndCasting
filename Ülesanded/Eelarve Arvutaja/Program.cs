@@ -18,6 +18,7 @@
             string sisestus = "";
             Console.WriteLine("Sisesta tulud ükshaaval, kui on kõik, siis kirjuta \"rohkem pole\"");
             List<float> tulud = VõtaKasutajaltMituSisenditJärjest();
+            Console.WriteLine("Sisesta  oma kulud ükshaaval, kui on kõik, siis kirjuta \"rohkem pole\"");
             List<float> kulud = VõtaKasutajaltMituSisenditJärjest();
 
             //tee uus meetod, mis arvutab kokku järjendi sisu
